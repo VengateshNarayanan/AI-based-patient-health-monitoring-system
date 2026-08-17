@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, send_from_directory
+from flask import Flask, request, jsonify, send_from_directory, redirect
 from flask_cors import CORS
 
 from database import db, Doctor, Patient, HealthRecord
@@ -40,6 +40,10 @@ with app.app_context():
 # ============================================================
 # DASHBOARD
 # ============================================================
+@app.route("/")
+def home():
+    return redirect("/dashboard")
+
 
 @app.route("/dashboard")
 def dashboard():
